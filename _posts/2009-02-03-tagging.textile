@@ -54,7 +54,7 @@ $ git push --tags
    * [new tag]         v1.0.0 -> v1.0.0
 </pre>
 
-The second describe command shows us that we're one commit ahead of where the last tag was done. This is an easy way to figure out how much work has been done since the last commit. Also, the @--tags@ option was used to push here, but just the one tag could have been pushed with @git push origin : v1.0.0@. On GitHub (or on your remote) you should see the tag pushed up:
+The second describe command shows us that we're one commit ahead of where the last tag was done. This is an easy way to figure out how much work has been done since the last commit. Also, the @--tags@ option was used to push here, but just the one tag could have been pushed with @git push origin v1.0.0@. On GitHub (or on your remote) you should see the tag pushed up:
 
 p=. !/images/tag.png!
 
