@@ -1,37 +1,39 @@
 ---
+published: true
 layout: post
-title: checkout tracked remote branch
+title: rapatrier localement une branche distante 
 category: intermediate
 ---
 
-I frequently need to do this when setting up or syncing my various machines, and I seem to forget the command all the time. So let's say you've got more than one branch on your remote, and you want to bring it down into your local repository as well:
+J'ai souvent besoin de rapatrier une branche distante en local lorsque j'initialise ou synchronise de nouveaux dépôts sur de nouvelles machines, mais j'oublie souvent la syntaxe de la commande. La situation est alors la suivante: vous avez des branches distantes que vous souhaitez rapatrier en local. Il suffit de connecter, ou _track_, cette branche _remote_ à une branche locale.
 
 p=. !http://gitready.com/images/branches.png!
 
-Viewing information on the remote should look something like this:
+Les informations sur les branches distantes apparaissent ainsi:
 
 <pre>
 $ git remote show origin
-  * remote origin
-    URL: *************
-    Remote branch merged with 'git pull' 
-      while on branch master
-        master
-      Tracked remote branches
-        haml master
+* remote origin
+  Fetch URL: ******
+  Push  URL: ******
+  HEAD branch: ****
+  Remote branches:
+    ****    tracked
+    ****    tracked
+    ****    tracked
 </pre>
 
-Luckily, the command syntax for this is quite simple:
+La syntaxe de la commande pour _track_ une branche _remote_ dans une branche _local_ est très simple:
 
 <pre>
-git checkout --track -b 
-  <local branch> <remote>/<tracked branch>
+git checkout --track -b <local branch> <remote>/<tracked branch>
 </pre>
 
-So in my case, I used this command:
+Dans mon cas, j'ai utilisé:
 
 @git checkout --track -b haml origin/haml@
 
 You can also use a simpler version:
+Une version raccourcie existe:
 
 @git checkout -t origin/haml@
