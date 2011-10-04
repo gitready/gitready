@@ -22,7 +22,7 @@ Diese Seite ist der heißeste Platz, um Open Source Projekte zusammen mit deinem
 dass du eine Menge anderer Benutzer finden kannst, die Git täglich benutzen und wie sie es nutzen. Es gibt eine Menge verschiedener
 Modelle, die du beobachten kannst: Alles vom einzelnen Entwickler, der an Hobby-Projekten arbeitet, bis hin zu sehr aktiven
 Entwicklungsprojekten mit Zehn bis Hunderten von Forks (Abspaltungen). Solltest du noch kein Konto haben, melde dich an und finde ein Projekte
-deiner "Lieblingssprache":http://github.com./languages.
+deiner "Lieblingssprache":http://github.com/languages.
 
 3) Die "Git Mailing List":http://vger.kernel.org/vger-lists.html#git
 

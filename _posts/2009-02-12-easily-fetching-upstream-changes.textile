@@ -1,28 +1,27 @@
 ---
 layout: post
-title: easily fetching upstream changes
+title: Upstream-Änderungen einfach herunterladen
 category: intermediate
-published: false
+published: true
 ---
 
-This tip comes from "Dav Glass":http://blog.davglass.com/, whose work on "YUI":http://developer.yahoo.com/yui/ at "GitHub":http://github.com/yui requires him to bring in commits frequently. So, he's created a "helpful alias":http://gitready.com/intermediate/2009/02/06/helpful-command-aliases.html so he can merge in changes easily. 
+Dieser Tip ist von "Dav Glass":http://blog.davglass.com/, dessen Arbeit an "YUI":http://developer.yahoo.com/yui/ auf "GitHub":http://github.com/yui häufig Commits erfordert. Also hat er sich einen "hilfreichen alias":http://gitready.com/intermediate/2009/02/06/helpful-command-aliases.html erstellt, mit dem er Änderungen einfach zusammenführen kann.
 
-First off, he's got a consistent naming scheme for his upstream remote: 
+Zunächst hat er ein konsistentes Namensschema für sein entferntes Upstream-Repository festgelegt:
 
 @git remote add upstream git://github.com/user/repo.git@
 
-Just throw this in your @.gitconfig@ and you're all set:
+Das wirfst du dann in deine @.gitconfig@ und schon bist du fertig:
 
 <pre>
 [alias]
   pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
 </pre>
 
-Now @git pu@ will grab all of the latest changes from both remotes, and then merge in the commits from upstream. 
+@git pu@ zieht alle neuesten Änderungen von beiden entfernten Repositories und führt sie zusammen.
 
-How is this different from just doing a @git pull upstream master@? This brings in changes from two different sources: his own fork and the main repository (the upstream). Doing a "pull":http://gitready.com/beginner/2009/01/21/pushing-and-pulling.html usually only brings changes in from one source. If you're confused about how this works, check out the History section of "Git for Computer Scientists":http://eagain.net/articles/git-for-computer-scientists/#history for some graphs on how the fetching and merging process works.
+Was ist daran aber anders als ein @git pull upstream master@? Es werden Änderungen von zwei verschiedenen Quellen zusammengeführt: Der eigene Fork und das Upstream-Repository. Ein "pull":http://de.gitready.com/beginner/2009/01/21/pushing-and-pulling.html zieht für gewöhnlich nur Änderungen von einer Quelle. Falls du verwirrt bist, wie das funktioniert, schau im Abschnitt "History" von "Git for Computer Scientists":http://eagain.net/articles/git-for-computer-scientists/#history vorbei. Dort zeigen dir ein paar Schaubilder, wie der Fetch- und Merge-Prozess funktionieren.
 
-Of course, there's plenty of different ways you could tackle this problem. For example, you could use "rebase":http://gitready.com/intermediate/2009/01/31/intro-to-rebase.html or even "pull with rebase":http://gitready.com/advanced/2009/02/11/pull-with-rebase.html instead of merging. It all depends on how you want to organize your repository's history, and what's easiest for you. 
+Natürlich gibt es viele unterschiedliche Wege, mit dem Problem umzugehen. Du könntest beispielsweise "rebase":http://de.gitready.com/intermediate/2009/01/31/intro-to-rebase.html oder sogar "Pull mit Rebase":http://de.gitready.com/advanced/2009/02/11/pull-with-rebase.html anstatt das Zusammenführen (Merge) verwenden. Es hängt alles davon ab, wie du deine Repository-History organisieren möchtest und was für dich am einfachsten ist.
 
-If you have aliases or suggestions to make this process easier, let us know!
-
+Wenn du Aliase oder Vorschläge hast, um diesen Prozess einfacher zu gestalten, lass es uns gerne wissen!

@@ -8,8 +8,7 @@ translated: true
 
 Heute schauen wir ein weiteres mächtiges Grundkonzept an, das Git gegenüber anderen Versionskontrollsystemen besitzt: Verteilung! Wie du vielleicht weißt, sind deine Commits alle lokal und Repositories sind einfach nur Klone voneinandern. Die wirkliche Arbeit im Verteilen deines Projekts fällt beim Synchronisieren deiner Änderungen mit @git push@ und @git pull@ an.
 
-Das sind viel zu hohe Unkosten die zu einem Zusammenbruch der Kontrolle führen, mag der Gitneuling vielleicht denken. Betrachte es auf diese Weise: Wenn dein Server ausfällt, wirst du meist daran gehindert weiter zu arbeiten und mit anderen zusammen zu arbeiten. Die tatsächliche Arbeit besteht im Erstellen von Revisionen auf deiner eigenen Maschine. Somit kannst du weiter programmieren, ob das Netzwerk nicht verfügbar ist oder sonstige Netzwerkprobleme bestehen. Habe ich schon erwähnt, dass Git bei Routineaufgaben um einiges Schneller ist? Weitere Vor- (und Nachteile) von DCVS gibt es auf
-"Wikipedia":http://en.wikipedia.org/wiki/Distributed_revision_control#Vs_Centralised.
+Das sind viel zu hohe Unkosten die zu einem Zusammenbruch der Kontrolle führen, mag der Gitneuling vielleicht denken. Betrachte es auf diese Weise: Wenn dein Server ausfällt, wirst du meist daran gehindert weiter zu arbeiten und mit anderen zusammen zu arbeiten. Die tatsächliche Arbeit besteht im Erstellen von Revisionen auf deiner eigenen Maschine. Somit kannst du weiter programmieren, ob das Netzwerk nicht verfügbar ist oder sonstige Netzwerkprobleme bestehen. Habe ich schon erwähnt, dass Git bei Routineaufgaben um einiges Schneller ist? Weitere Vor- (und Nachteile) von DCVS gibt es auf "Wikipedia":http://en.wikipedia.org/wiki/Distributed_revision_control#Vs_Centralised.
 
 "Oliver Steele":http://osteele.com hat ein großartiges Bild zur Arbeitsweise von Push und Pull erstellt.
 
