@@ -1,38 +1,40 @@
 ---
-published: false
+published: true
 layout: post
-title: stashing your changes
+title: esconder tus cambios
 category: beginner
 ---
 
-Stashing is a great way to pause what you're currently working on and come back to it later. For example, if you working on that awesome, brand new feature but someone just found a bug that you need to fix. Add your changes to the index using
+
+Esconder tus cambios es una muy buena manera de pausar tu trabajo para regresar a el despu&eacute;s. Por ejemplo, si estas trabajando en esa espectacular nueva funcionalidad, pero alguien encuentra un _bug_ que tu necesitas arreglar. Agregas tus cambios al index usando
 
 @git add .@
 
-Or add individual files to the index, your pick. Stash your changes away with:
+Tambi&eacute;n puedes agregar los archivos individuales que elijas. Ahora ya puedes esconder tus cambios con
+
 
 @git stash@
 
-And boom! You're back to your original working state. Got that bug fixed? Bring your work back with:
+Y listo! Tienes tu directorio de trabajo de nuevo en su estado original. Terminaste de arreglar ese _bug_? Puedes obtener tu trabajo de regreso con
 
 @git stash apply@
 
-You can also do multiple layers of stashes, so make sure to use 
+Puedes tener varias capas de escondites o _stashes_, asegurate de usar
 
-@git stash list@ 
+@git stash list@
 
-To check out all of your current ones. If you need to apply a stash from deeper in the stack, that's easy too. Here's how to apply the second stash you've got:
+Para ver un listado de todos. Si necesitas recuperar un escondite mas antiguo que el anterior, es algo sencillo de hacer. A continuaci&oacute;n un ejemplo de como aplicar el segundo escondite de la lista
 
 <code>git stash apply stash@{1}</code>
 
-You can also easily apply the top stash on the stack by using ("Thanks jamesgolick!":http://jamesgolick.com/):
+Puedes aplicar facilmente el ultimo escondite en la pila usando ("Thanks jamesgolick!":http://jamesgolick.com/):
 
 @git stash pop@
 
-A note with this command, it deletes that stash for good, while apply does not. You can manually delete stashes with:
+Una nota sobre este comando, usar _pop_ borra el escondite de la pila, mientras _apply_ no lo hace. Puedes borrar manualmente escondites con
 
 @git stash drop <id>@
 
-Or delete all of the stored stashes with:
+O borrar todos los guardados con
 
 @git stash clear@
