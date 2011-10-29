@@ -91,6 +91,6 @@ And if we look at the history again...
 
 p=. !/images/squash2.png!
 
-So, this has been a relatively painless so far. If you run into conflicts during the rebase, they're usually quite easy to resolve and Git leads you through as much as possible. The basics of this is fix the conflict in question, @git add@ the file, and then @git rebase --continue@ will resume the process. Of course, doing a @git rebase --abort@ will bring you abck to your previous state if you want. If for some reason you've lost a commit in the rebase, you can use the "reflog":http://gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html to get it back.
+So, this has been a relatively painless so far. If you run into conflicts during the rebase, they're usually quite easy to resolve and Git leads you through as much as possible. The basics of this is fix the conflict in question, @git add@ the file, and then @git rebase --continue@ will resume the process. Of course, doing a @git rebase --abort@ will bring you back to your previous state if you want. If for some reason you've lost a commit in the rebase, you can use the "reflog":http://gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html to get it back.
 
 There's plenty of other uses for @git rebase -i@ that haven't been covered yet. If you have one you'd like to share, "please do so!":/submit.html "GitCasts":http://gitcasts.com also has a "fantastic video":http://gitcasts.com/posts/rebasing on this process as a whole that also covers some more complex examples of the command.
