@@ -28,6 +28,8 @@ h3. 4. Git is not hard to set up.
 
 Setting up a Git repository is as simple as doing @git init@ in any directory. It can't get much simpler for that. Sharing your changes with others is when things get a bit more interesting. Usually "sharing your changes":http://gitready.com/intermediate/2009/01/24/sharing-your-changes.html is one or two commands away. Hosting your changes somewhere the right way can be a little tricky though: usually for self setup the best way to go is using "gitosis":http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way, which is an tool that helps with getting SSH keys for users set up for commit access.
 
+Update 26-Oct-2011: Note that the last commit of gitosis is from "2009":http://eagain.net/gitweb/?p=gitosis.git. "Gitolite":https://github.com/sitaramc/gitolite/ nowadays seems to be better supported.
+
 h3. 5. Git is not hard to learn.
 
 Git's "manpages":http://www.kernel.org/pub/software/scm/git/docs/user-manual.html are quite extensive (and verbose), but there are plenty of other guides available for learning online. Some of the best are listed in the resources section in this site's footer! For those new to Git, I usually recommend the "Git Community Book":http://book.git-scm.com/ and running through some of the "GitCasts":http://gitcasts.com videos. (Reading this site counts too!)
