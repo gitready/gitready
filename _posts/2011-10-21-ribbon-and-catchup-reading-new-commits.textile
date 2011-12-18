@@ -1,0 +1,39 @@
+---
+layout: post
+title: "ribbon/catchup: reading new commits"
+category: advanced
+---
+
+p=. This is a guest post from "Jo Liss":http://opinionatedprogrammer.com/.
+
+I picked up this trick to use Git as a kind of feed-reader on "Moro's blog":http://d.hatena.ne.jp/moro/20110719/1311048331, so I thought I'd share it here:
+
+Let's say you want to stay up-to-date with a project - for example, an upstream repository you are contributing to, a smart developer you are trying to learn from, or an awesome library you'd just like to watch. How do you go about following the commits that are being pushed?
+
+You _could_ use RSS feeds, such as the ones offered by GitHub:
+
+p=. !/images/github-feed.png!
+
+But let's be honest: We would much rather read commits and diffs in the shell, like we are used to. (And as a bonus, we won't be assaulted by webcomics, pictures of kittens, and any number of other distractions our feed reader has in store for us.)
+
+So instead, we display new commits with @git log@, and use Git's "lightweight tag system":http://book.git-scm.com/3_git_tag.html to place a "ribbon" marker tag that keeps track of how far we have read.
+
+p=. !/images/ribbon-marker.jpg(A real-life ribbon marker)!:http://www.flickr.com/photos/beth19/4288525214/ <!-- photo CC BY-NC-ND 2.0 on Aug 20, 2011 -->
+
+Simply add the following code to your @~/.gitconfig@:
+
+<pre>
+[alias]
+    ribbon = tag --force _ribbon origin/master
+    catchup = log --patch --reverse --topo-order _ribbon..origin/master
+</pre>
+
+Clone the project you want to watch, and type @git ribbon@ to initialize the ribbon marker.
+
+Now whenever you fetch or pull, use @git catchup@ to read up on the latest changes in the @origin/master@ branch. After you are done reading, update the ribbon marker with @git ribbon@.
+
+Sweet, isn't it?
+
+By the way: If you do not like to read the individual commits in topic branches that were merged into @origin/master@, consider adding @--first-parent -m@ to the catchup log command.
+
+p(((. <i>Jo Liss blogs at "Opinionated Programmer":http://opinionatedprogrammer.com/ and makes voting software at "Electic":http://electicvoting.com/. </i>
