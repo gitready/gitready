@@ -22,7 +22,7 @@ Here's how the history looks:
 
 p=. !/images/checkout2.png!
 
-Hopefully this isn't too confusing. Basically the commit we just made is pretty far down in history, which most likely will be the case you're in if you need to restory a directory. First off, we need to get the reference to the commit that has the directory you want to pull. In this case, we know the last commit was the merge and the commit before that we deleted the directory. So, the commit we want to reference is the third commit in history, or @HEAD~2@. You could also reference this by the branch name (@test~2@) or even go one back from the SHA of the deletion (@f46666d^@). 
+Hopefully this isn't too confusing. Basically the commit we just made is pretty far down in history, which most likely will be the case you're in if you need to restore a directory. First off, we need to get the reference to the commit that has the directory you want to pull. In this case, we know the last commit was the merge and the commit before that we deleted the directory. So, the commit we want to reference is the third commit in history, or @HEAD~2@. You could also reference this by the branch name (@test~2@) or even go one back from the SHA of the deletion (@f46666d^@). 
 
 In any case, if you try to checkout a directory from a revision where it doesn't exist, you'll get this nice message:
 
