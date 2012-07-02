@@ -7,7 +7,7 @@ published: true
 
 Du hast ein @git reset --hard HEAD^@ durchgeführt und soeben deinen letzten Commit weg geworfen. Es stellt sich jedoch heraus, dass du diese Änderungen wirklich brauchst. Du wirst niemals in der Lage sein, den Algorithmus ein zweites Mal so perfekt zu implementieren, also willst du ihn zurück haben. Keine Panik! Git sollte den Commit noch haben. Wenn du einen Reset durchführst, geht der weggeworfene Commit in einen "baumelnden" Status über. Er befindet sich weiterhin in Gits Datenspeicher und wartet auf die nächste Müllsammlung (garbage collection), um aufgeräumt zu werden. Sofern du seit dem Wegwurf kein @git gc@ ausgeführt hast, solltest du den Commit wieder herstellen können.
 
-Für die Beispiele arbeite ich mit dem "Code für dieses Blog":http://github.com/qrush/gitready:
+Für die Beispiele arbeite ich mit dem "Code für dieses Blog":http://github.com/gitready/gitready:
 
 <pre>
 $ git show-ref -h HEAD
