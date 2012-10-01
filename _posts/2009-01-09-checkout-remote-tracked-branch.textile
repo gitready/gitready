@@ -1,15 +1,15 @@
 ---
-published: false
+published: true
 layout: post
 title: checkout tracked remote branch
 category: intermediate
 ---
 
-I frequently need to do this when setting up or syncing my various machines, and I seem to forget the command all the time. So let's say you've got more than one branch on your remote, and you want to bring it down into your local repository as well:
+לעיתים תכופות אני צריך לעשות את זה כאשר אני רוצה לסנכרן בין המכונות השונות שלי, ואני שוכח את הפקודה לעשות זאת. אז נניח שיש לך יותר מבראנץ' אחד מרוחק, ואתה רוצה להביא אותו אליך מקומית גם כן:
 
 p=. !http://gitready.com/images/branches.png!
 
-Viewing information on the remote should look something like this:
+כאשר מסתכלים על המידע בריפוזיטורי (מאגר) המרוחק אז הוא הוא כנראה יראה דומה לזה:
 
 <pre>
 $ git remote show origin
@@ -22,17 +22,17 @@ $ git remote show origin
         haml master
 </pre>
 
-Luckily, the command syntax for this is quite simple:
+למזלנו, הפקודה בשביל לעשות זאת דיי פשוטה:
 
 <pre>
 git checkout --track -b 
   <local branch> <remote>/<tracked branch>
 </pre>
 
-So in my case, I used this command:
+אז במקרה שלי, אני השתמשתי בפקודה הזאת:
 
 @git checkout --track -b haml origin/haml@
 
-You can also use a simpler version:
+ואפשר להשתמש בגרסה פשוטה יותר:
 
 @git checkout -t origin/haml@
