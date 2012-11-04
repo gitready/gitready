@@ -1,13 +1,13 @@
 ---
-published: false
+published: true
 layout: post
-title: count your commits
+title:  コミット数のカウント
 category: intermediate
 ---
 
-Ever wondered how many commits you've contributed to a project? Or perhaps, which coworker has really done nothing (or maybe they have huge changes and fewer commits!) Well, wonder no more, for @git shortlog@ is a nice way to find out. 
+自分がどれだけのコミットでプロジェクトに貢献してきたかのか、と考えたことはありますか？もしくは、同僚の誰が何にもしていないか（または、かなりの変更をしてるのに、少数のコミットかも）。それなら、考えるのはやめましょう。@git shortlog@でそれらが分かります。
 
-I'm running this on my "clone of jekyll":http://github.com/qrush/jekyll, which is how this blog is generated:
+私は以下のコマンドを、このブログを作るのに使われている"jekyllのクローン":http://github.com/qrush/jekyll で実行しています。
 
 <pre>
 $ git shortlog -s -n
@@ -28,7 +28,6 @@ $ git shortlog -s -n
   1  Tom Kirchner
 </pre>
 
-The @-s@ option squashes all of the commit messages into the number of commits, and the @-n@ option sorts the list by number of commits. 
+@-s@のオプションは、コミットメッセージ無しでコミット数を表示し、@-n@のオプションはコミット数でリストを並べかえます。
 
-This command could also be useful for changelogs, since you could easily dump all the changes each person has done. There's a few other neat options: @-e@ will append emails, and you can control columns widths with @-w@. Check out the "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-shortlog.html for more information.
-
+簡単に個々による変更点をダンプできるので、このコマンドはchangelogsにも役立ちます。他にも良いオプションがあります：@-e@ はeメールを表示し、@-w@ でコラムの幅も指定できます。詳しくは "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-shortlog.html をチェックしてください。

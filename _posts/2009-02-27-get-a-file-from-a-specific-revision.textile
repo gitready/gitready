@@ -1,20 +1,20 @@
 ---
-published: false
+published: true
 layout: post
-title: get a file from a specific revision
+title: 特定のリビジョンからファイルを取り出す
 category: intermediate
 ---
 
-If you know how Git stores data through "blobs, trees, and commits":http://gitready.com/beginner/2009/02/17/how-git-stores-your-data.html hopefully it should make sense why it's a bit annoying to get a file from a specific revision out of your repository. What you want is inside of a blob from whichever commit, so simply saying I want to see this commit won't cut it. Now, you could reset the working directory back to the commit you want to see then look at the file, but that's lame. 
+Gitが"ブロブ, ツリー,　コミット":http://gitready.com/beginner/2009/02/17/how-git-stores-your-data.html を通してどのようにデーダを保存しているかを知っているのであれば、レポジトリーから特定のリビジョンのファイルを取り出すのがちょっと面倒であることが分かると思います。あるコミットのblobの内容が欲しい場合、シンプルに”このコミットが見たい！”という訳にはいきません。その特定のコミットまでワーキングディレクトリーをリセットすることも可能ですが、あまりいい方法ではありません。
 
-Enter @git show@, which is an awesome tool for this job. This command is quite versatile and deserves several tips on what it can do, but let's stick to the task at hand: we want to pull a file's contents out from a specific revision. Usually the command would be done like so:
+ここで便利な@git show@をタイプしてください。このコマンドはとても用途が広く、どのようなことが出来るかいくつかの説明が必要ですが、まずは本題であるこのトピックからやっていきましょう：特定のリビジョンからファイルのコンテンツを取り出します。大体このようなコマンドで行われます：
 
 @git show <treeish>:<file>@
 
-So let's say we want to go back four commits from our current HEAD, and we want the index.html file.
+例えば、現在のHEADから４つのコミットをさかのぼったindex.htmlのファイルを見たいとします。
 
 @git show HEAD~4:index.html@
 
-You could of course pass any valid "treeish":http://book.git-scm.com/4_git_treeishes.html into the command. It will accept the actual SHA1 of the blob as well, but that's pretty unlikely for most use cases. Probably the best use of this command is to see what the file looked like and perhaps write its contents out to a new file (or replace the old one!) if so desired.
+もちろんコマンド内にバリッドな"treeish":http://book.git-scm.com/4_git_treeishes.html を渡すことができます。blobのSHA1も受け入れますが、あまり使われることはありません。たぶん一番の用途はファイルがどんなステートだったかを見ること、そしてそのコンテンツを新しいファイルに書く（もしくは古いのと書き換える）ことでしょう。
 
-Check out some of the other uses of this command at its "manpage":http://www.kernel.org/pub/software/scm/git/docs/git-show.html, and of course if you have other useful hints with it, let us know by "submitting a tip!":/submit.html
+このコマンドのその他の用途も"manpage":http://www.kernel.org/pub/software/scm/git/docs/git-show.html でチェックしてみてください。もし他にもこのコマンドについての便利なヒントがあったらこのページからお知らせください！"submitting a tip!":/submit.html

@@ -1,11 +1,11 @@
 ---
-published: false
+published: true
 layout: post
-title: helpful command aliases
+title: 便利なコマンドエイリアス
 category: intermediate
 ---
 
-A great way to make your life using Git easier is to add aliases for commands that you use all the time into your @.gitconfig@ file. It might not be as elegant as adding shortcuts to your shell, but at least this will work consistently across all shells and is a breeze to set up. The "Git Cheat Sheet":http://cheat.errtheblog.com/s/git suggests adding this block to your config file:
+Gitを楽に使いこなすために、よく使うコマンドのエイリアスを@.gitconfig@ファイルに入れておくと便利です。Shellにショートカットを設定するのと比べると奇麗な方法ではないかもしれませんが、少なくとも全てのShellで一貫して使えて、設定も簡単です。"Git Cheat Sheet":http://cheat.errtheblog.com/s/git によると以下のブロックを設定ファイルに入れておくことを勧めています。
 
 <pre>
 [alias]
@@ -17,7 +17,7 @@ A great way to make your life using Git easier is to add aliases for commands th
   lg = log -p
 </pre>
 
-Once you've got this block added to your config file, it should work immediately:
+このブロックを設定ファイルに保存したら、もうすでにエイリアスが使えます。
 
 <pre>
 $ git st
@@ -29,14 +29,14 @@ $ git st
 nothing added to commit but untracked files present (use "git add" to track)
 </pre>
 
-You can also add aliases like so, and they will get added to your @.gitconfig@ file automatically.
+また、このようにエイリアスを設定することも出来て、自動的に設定ファイルに書き込まれます。
 
 <pre>
 $ git config –-global alias.rb rebase
 </pre>
 
 
-For the SVN converts, Alex Soto has suggested a few alias helpers that will help with interacting with Subversion repositories:
+SVNを使っていた人達のために、Alex SotoはSubversionのレポジトリーとのやり取りするのに役立つ、いくつかのエイリアスを勧めています。
 
 <pre>
 [alias]
@@ -44,5 +44,4 @@ For the SVN converts, Alex Soto has suggested a few alias helpers that will help
   spush = !git-svn dcommit
 </pre>
 
-There's also plenty of other advanced commands at the "GitWiki":http://git.or.cz/gitwiki/Aliases. If you've got an alias that others could find useful, comment or "submit":/submit.html away and it will be added!
-
+まだまだたくさんの上級編のコマンドが"GitWiki":http://git.or.cz/gitwiki/Aliases にのってます。もし役立ちそうなエイリアスがあり、ここのコメント、もしくは"ここから":/submit.html 投稿して頂いたら、追加されます！

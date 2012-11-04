@@ -1,13 +1,13 @@
 ---
-published: false
+published: true
 layout: post
-title: easily manage git remote branches
+title: 簡単にリモートブランチを管理しよう
 category: advanced
 ---
 
-"Checking out remote branches":http://gitready.com/intermediate/2009/01/09/checkout-remote-tracked-branch.html, "deleting them":http://gitready.com/beginner/2009/02/02/push-and-delete-branches.html, and publishing new ones is part of most Git users' daily workflow. But seriously, who wants to type *that* much? I certainly don't, and you shouldn't have to either.
+"リモートブランチのチェックアウト":http://gitready.com/intermediate/2009/01/09/checkout-remote-tracked-branch.html、 "ブランチの削除":http://gitready.com/beginner/2009/02/02/push-and-delete-branches.html、そして新しいブランチのパブリッシュなどは、Gitユーザーにとっては日常的に行われることです。しかし、誰が*そんなに*タイプしたいでしょうか？私は本当に嫌ですし、あなたもそんなにタイプする必要はありません。
 
-Enter "git_remote_branch":http://grb.rubyforge.org/, a helpful "RubyGem":http://rubygems.org for just this task. It installs a new executable to help take some of the chore of working with remotes away. Here are some of the commands it has:
+その為に、"git_remote_branch":http://grb.rubyforge.org/, 役立つ"RubyGem":http://rubygems.org を試してみてください。リモートブランチを扱う上での雑用的なタスクを簡素化する為の、新しい実行ファイルをインストールします。これらがいくつかのコマンドの例です。
 
 <pre>
 grb create branch_name [origin_server]
@@ -21,14 +21,15 @@ grb delete branch_name [origin_server]
 grb track branch_name [origin_server]
 </pre>
 
-What's awesome about it is that it shows what Git commands are running underneath it, so it's quite easy to figure out exactly what's going on.
+この素晴らしいところは、どのGitコマンドが走っているかを表示してくれて、何が起こっているのかを簡単に把握できます。
 
 p=. !/images/grb1.png!
 
+また、@explain@ というコマンドも含まれていて、コマンドを直接表示します。
 It also has an @explain@ command built in that dumps out the commands directly.
 
 p=. !/images/grb2.png!
 
-Provided you have "RubyGems installed":http://rubyforge.org/frs/?group_id=126, simply do @gem install git_remote_branch@ and you're set! Check out the code on "GitHub":http://github.com/webmat/git_remote_branch/tree if you have ideas on how to make it better (or want to write your own helpful commands based off of it!)
+"RubyGemsをインストール"すれば、単に @gem install git_remote_branch@ とするだけで全て完了です！もっと良くするアイディア（もしくは、これに基づいてあなたが考えた役立つコマンド）がありましたら"GitHub":http://github.com/webmat/git_remote_branch/tree でコードをチェックしてみてください。
 
-If you know of other helpful shortcuts that can help out Git users, "submit a tip!":http://gitready.com/submit.html
+他にもGitユーザーに役立つショートカットがありましたら、"投稿してください！":http://gitready.com/submit.html
