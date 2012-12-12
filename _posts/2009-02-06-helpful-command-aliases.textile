@@ -31,7 +31,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 You can also add aliases like so, and they will get added to your @.gitconfig@ file automatically.
 
 <pre>
-$ git config –-global alias.rb rebase
+$ git config --global alias.rb rebase
 </pre>
 
 
