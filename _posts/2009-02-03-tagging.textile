@@ -8,7 +8,7 @@ Tagging in Git is a great way to denote specific release versions of your code, 
 
 Probably the best way to describe a tag is a post-it note that refers to one commit. It contains a name, so something like @v1.0.0@ or @production@, and a message too if you want. "Git for Computer Scientists":http://eagain.net/articles/git-for-computer-scientists/ visualizes a tag like so:
 
-p=. !http://eagain.net/articles/git-for-computer-scientists/git-storage.6.png!
+p=. !http://eagain.net/_images/git-storage.6.png!
 
 So, how does one create a tag? Just @git tag v1.0.0@ right? WRONG. You *usually* don't want to do that. In fact, some suggest that this command "does the wrong thing by default":http://www.rockstarprogrammer.org/post/2008/oct/16/git-tag-does-wrong-thing-default/. Without arguments, @git tag@ creates a "lightweight" tag that is "basically a branch that never moves":http://book.git-scm.com/3_git_tag.html. Lightweight tags are still useful though, perhaps for marking a known good (or bad) version, or a bunch of commits you may need to use in the future. Nevertheless, you probably don't want to push these kinds of tags.
 
