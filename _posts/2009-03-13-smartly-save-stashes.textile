@@ -1,10 +1,11 @@
 ---
+published: false
 layout: post
-title: smartly save stashes
-category: beginner
+title: αποθήκευσε τα stashes έξυπνα
+category: για αρχάριους
 ---
 
-I seem to be using "stashing":http://gitready.com/beginner/2009/01/10/stashing-your-changes.html more and more, and I've found that seeing the stash list output looking like this isn't very helpful:
+Φαίνεται ότι χρησιμοποιώ το "stashing":http://gitready.com/beginner/2009/01/10/stashing-your-changes.html όλο και περισσότερο, και έχω διαπιστώσει ότι δεν είναι και τόσο χρήσιμο να βλέπω το αποτέλεσμα του stash list έτσι:
 
 <pre>
 $ git stash list
@@ -13,13 +14,13 @@ stash@{1}: WIP on master: b50788b... First pass...
 stash@{2}: WIP on shoulda: e783fb0... Upgrading the rest...
 </pre>
 
-Sure, it's got the commit SHA and message that your work was based off of, but if you're anything like me, you forgot what you worked on the moment you stashed the changes and opened up that dreaded bug ticket that took hours to finish.
+Βέβαια, έχει το SHA και το μήνυμα της υποβολής στην οποία βασιζόταν η δουλειά σου, αλλά αν είσαι λίγο σαν και μένα, ξέχασες πάνω σε τι δούλευες τη στιγμή που έβαλες στην άκρη τις αλλαγές και άνοιξες την επίφοβη αναφορά σφάλματος που σου πήρε ώρες για να τελειώσεις.
 
-Instead, stashing like this is a lot better when you're trying to figure out what you actually threw in there:
+Αντίθετα, είναι πολύ καλύτερο να κάνεις stash έτσι, όταν προσπαθείς να καταλάβεις τι ακριβώς πέταξες εκεί μέσα:
 
-@git stash save "your message here"@
+@git stash save "το μήνυμα σου εδώ"@
 
-Now, your stashes will look a lot cleaner and hopefully help you save some time when pulling information out of there.
+Τώρα, τα stashes σου θα φαίνονται πολύ πιο καθαρά και ελπίζω ότι θα σε βοηθήσει να γλιτώσεις κάποιο χρόνο όταν τραβάς πληροφορίες από εκεί μέσα.
 
 <pre>
 $ git stash list
@@ -28,7 +29,7 @@ stash@{1}: On master: started merge but need to fix #104 first
 stash@{2}: On feature1: Adding some stuff
 </pre>
 
-If you need to see what's been changed for a certain stash, you can simply pass in the treeish for the stash, given in the @git stash list@ output. The <code>stash@{<number>}</code> part shows you how to reference that changeset. Simply pass it into @git diff@ to figure out what was changed:
+Αν θέλεις να δεις τι έχει αλλάξει σε ένα συγκεκριμένο stash, μπορείς απλά να περάσεις σαν παράμετρο το όνομα του stash, όπως δίνεται από το @git stash list@. Το κομμάτι <code>stash@{<number>}</code> σου δείχνει πως να αναφερθείς σε αυτό το σύνολο αλλαγών. Απλά πέρασέ το στο @git diff@ για να δεις τι έχει αλλάξει:
 
 <pre>
 $ git diff stash@{0}
@@ -45,4 +46,4 @@ index b0ecaeb..4ca398c 100644
 \ No newline at end of file
 </pre>
 
-You could also use @git show@ to see the commit it was based off of as well. If you've got more stash related tips or others that you can think of, "let us know!":http://gitready.com/submit.html
+Μπορείς ακόμα να χρησιμοποιήσεις το @git show@ για να δεις και την υποβολή στην οποία βασιζόταν. Αν έχεις και άλλα tips/άρθρα σχετικά με το stash ή άλλα που μπορείς να σκεφτείς, "ενημέρωσέ μας!":http://gitready.com/submit.html

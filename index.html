@@ -1,17 +1,17 @@
 ---
 layout: default
-title: learn git one commit at a time
+title: μάθε το git μία υποβολή τη φορά
 ---
 {% assign first_post = site.posts.first %}
 <div id="post" class="grid_6 alpha content">
   <h2><a href="{{ first_post.url }}">
-    newest tip: {{ first_post.title }}
+    το πιο πρόσφατο άρθρο: {{ first_post.title }}
   </a></h2>
   {{ first_post.content | truncate: 450 }}
-  <a id="more" href="{{ first_post.url }}">Read More &raquo;</a>
+  <a id="more" href="{{ first_post.url }}">Διάβασε Περισσότερα &raquo;</a>
 </div>
 <div class="grid_2 omega">
-  <h3 id="purple">recent tips</h3>
+  <h3 id="purple">πρόσφατα άρθρα</h3>
   <ul class="recent">
   {% for post in site.posts limit: 7 %}
     <li><a href="{{ post.url }}">{{ post.title }}</a></li>
