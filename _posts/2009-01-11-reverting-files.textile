@@ -1,24 +1,27 @@
 ---
 published: false
+published: false
 layout: post
-title: reverting files
-category: beginner
+title: mengembalikan file seperti semula
+category: pemula
 ---
 
-This is a topic that is a constant source of confusion for many git users, basically because there's more than one way to skin the proverbial cat. Let's go over some of the basic commands that you'll need to undo your work. 
 
-So, you just want to revert one file back to its original state:
+Ini adalah topik yang merupakan sumber konstan kebingungan bagi banyak pengguna git, pada dasarnya karena ada lebih dari satu cara untuk memahami. Mari kita menengok beberapa perintah dasar untuk mengembalikan pekerjaan secara semula.
+
+Jadi, kamu hanya ingin mengembalikan satu file ke semula:
 
 @git checkout <file>@
 
-One problem with this is that you may have is that a file and branch named the same. Since the checkout command is used for both reverting files and swapping out to a different branch, you'll need to use this syntax (thanks, "Norbauer":http://norbauer.com/notebooks/code/notes/git-revert-reset-a-single-file)
+Satu masalah yang akan timbul dengan command di atas adalah ketika kamu mempunyai file dan branch dengan nama yang sama. Karena command ini selain digunakan untuk mengembalikan ke kondisi file semula, juga digunakan untuk berpindah ke branch lain. Kamu butuh menambahkan sintax ini untuk mengembalikan file ke semula (terimakasih, "Norbauer":http://norbauer.com/notebooks/code/notes/git-revert-reset-a-single-file)
 
 @git checkout -- <file>@
 
-If you want to throw out all of the changes you've been working on, there's two ways to do that.
+Jika kamu ingin mengembalikan semua file ke keadaan semula maka ada 2 cara untuk melakukan ini.
 
 @git checkout -f@ or @git reset --HARD@
 
-Once these commands are run you'll lose all of the work that isn't committed in your directory, so make sure to take caution when using them.
+ketika kamu menjalankan salah satu command di atas maka kamu akan kehilangan semua perubahan file yang tidak kamu commit. jadi hati hati menggunakan salah satu command diatas.
 
-Also, be aware that "'git revert' is not equivalent to 'svn revert'!":http://bryan-murdock.blogspot.com/2007/07/git-revert-is-not-equivalent-to-svn.html @git-revert@ is used to reverse commits, something another tip will cover in the future.
+Juga perlu kamu perhatikan bahwa "git revert" itu tidak sama dengan 'svn revert'!":http://bryan-murdock.blogspot.com/2007/07/git-revert-is-not-equivalent-to-svn.html @git-revert@ itu digunakan untuk mengembalikan commit, tip yang lain akan di jelaskan pada yang akan datang.
+

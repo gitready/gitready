@@ -1,38 +1,39 @@
 ---
 published: false
+published: false
 layout: post
-title: stashing your changes
-category: beginner
+title: stash dulu perubahannya
+category: pemula
 ---
 
-Stashing is a great way to pause what you're currently working on and come back to it later. For example, if you working on that awesome, brand new feature but someone just found a bug that you need to fix. Add your changes to the index using
+Stashing adalah cara yang tepat untuk berhenti sejenak dari apa yang kamu kerjakan kemudian kembali lagi. Contoh kasus, ketika kamu lagi bekerja pada suatu feature branch tapi seseorang menemukan bug dan kamu harus cepat cepat memperbaikinya, maka gunakanlah stash. Stage dulu apa yang kamu lakukan dengan command
 
 @git add .@
 
-Or add individual files to the index, your pick. Stash your changes away with:
+Atau stage secara individual. Kemudian stash menggunakan command berikut
 
 @git stash@
 
-And boom! You're back to your original working state. Got that bug fixed? Bring your work back with:
+Dan BOOM! kamu akan kembali ke index kamu yang semula. Jika sudah selesai mengerjakan feature branch, maka lanjutkan lagi pekerjaanmu dengan:
 
 @git stash apply@
 
-You can also do multiple layers of stashes, so make sure to use 
+Kamu juga bisa membagi stash dalam beberapa kelompok. Pastikan kamu menggunakan command
 
 @git stash list@ 
 
-To check out all of your current ones. If you need to apply a stash from deeper in the stack, that's easy too. Here's how to apply the second stash you've got:
+Untuk mengecheck daftar stash yang sudah kamu buat. Jika kamu ingin melanjutkan pekerjaanmu pada suatu stash dari yang paling awal, itu sangat mudah. Ini caranya melanjutkan stashmu kembali:
 
 <code>git stash apply stash@{1}</code>
 
-You can also easily apply the top stash on the stack by using ("Thanks jamesgolick!":http://jamesgolick.com/):
+Kamu juga bisa dengan mudah mengembalikan stash kamu yang paling terakhir dengan menggunakan command ("Terimakasih jamesgolick!":http://jamesgolick.com/):
 
 @git stash pop@
 
-A note with this command, it deletes that stash for good, while apply does not. You can manually delete stashes with:
+Catatan untuk command ini, ini akan menghapus stash, akan tetapi tidak mengembalikan apa yang sudah kamu stash. Kamu bisa menghapus stash dengan:
 
 @git stash drop <id>@
 
-Or delete all of the stored stashes with:
+Atau menghapus semua stash dengan command
 
 @git stash clear@
