@@ -10,7 +10,7 @@ If you're new to Git, you may think that this is too much overhead and one that 
 
 "Oliver Steele":http://osteele.com has whipped up a great image of how pushing and pulling works:
 
-p=. !http://osteele.com/images/2008/git-transport.png!
+p=. !/images/git-transport.png!
 
 The topmost part of the diagram is easy, that's committing your changes to "the staging area":http://gitready.com/beginner/2009/01/18/the-staging-area.html. Once that's done, your version control is essentially in place, but now we want to synchronize it with our remote repository. This could be on a hosting site like "GitHub":http://github.com, your work's main git server, a production machine, or even another coworker's repository. Once the changes have been delivered, others can @pull@ them down and work with them. With most actions in Git there's a few options, but let's stick with @pull@ for today.
 
