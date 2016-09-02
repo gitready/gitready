@@ -17,7 +17,7 @@ Der Archivieren-Befehl packt Repositories gewöhnlich in Tarballs, so dass du si
 
 Du kannst auch ein entferntes Repository archivieren, indem du die @--remote=<repo>@ Option verwendest. Beachte allerdings, dass das nicht für entfernte GitHub Repositories funktioniert. Hierfür wird "der Download-Button empfohlen.":http://groups.google.com/group/github/browse_thread/thread/cfcbcb1dc5f41f16 Mit anderen entfernten Repositories sollte das allerdings prima funktionieren. Lies die "Manpage":http://www.kernel.org/pub/software/scm/git/docs/git-archive.html, wenn es Probleme gibt.
 
-Was ist, wenn du eine komprimierte Variante von Dateien möchtest? Dank des @checkout-index@ Befehls ist das ebenfalls einfach möglich. Grundsätzlich kopiert der Befehl alles im Index in ein anderes Verzeichnis. Dein Repository exportieren würde bedeuten:
+Was ist, wenn du nicht komprimierte Dateien möchtest? Dank des @checkout-index@ Befehls ist das ebenfalls einfach möglich. Grundsätzlich kopiert der Befehl alles im Index in ein anderes Verzeichnis. Dein Repository exportieren würde bedeuten:
 
 @git checkout-index -f -a --prefix=/path/to/folder/@
 
