@@ -1,24 +1,25 @@
 ---
+published: true
 layout: post
 title: the staging area
 category: beginner
 ---
 
-One of the most essential concepts to Git is that of the staging area. Its use can fundamentally change how you work, for the better! Let's go over how exactly it works and what you'll need to know to use it.
+ステージングエリアこそが Git の本質たるコンセプトだ。ステージングエリアは作業のやり方を根本的に変えてしまう。もちろん、良い方向にだ。では、それがどういう仕組みなのか、使うにあたって何を知っておくべきなのかを復習しよう。
 
-With most other version control systems, there's 2 places to store data: your working copy (the folders/files that you're currently using) and the datastore (where the version control decides how to pack and store your changes). In Git there's a third option: the staging area (or index). It's basically a loading dock where you get to determine what changes get shipped away.
+他の多くのバージョン管理システムでは、データを保管する場所は2箇所ある。ワーキングコピー（ファイルシステム上の今まさに触っているファイルとディレクトリ）と、バージョン管理システムがそれぞれのやり方で変更履歴を保存する場所、の2つだ。Git では、第三の選択肢がある。ステージングエリア（インデックス）だ。要するにこれは、どの変更を「送り出す」かを決めるための発送センターと言える。
 
 p=. "!http://farm4.static.flickr.com/3259/2441544705_4c6f7e9b78.jpg!":http://flickr.com/photos/mundane_joy/2441544705/
 
-Since the working directory and what gets saved by Git are essentially decoupled, this allows the developer to build up their commits however they want, and not in a fashion where the VCS tells you. Since there's a layer between when Git actually saves the data, you gain a lot more flexibility and control.
+ワーキングディレクトリと Git のコミット保管先はきちんと分離されているので、ステージングエリアのおかげで開発者は事前にコミットを組み上げることが出来る。いかに望もうとも、他 VCS がデフォルトでは備えていなかったテイストだ。Git がデータを保存するまでにレイヤーが一つ挟まることで、より柔軟なコントロールが可能になる。
 
-Using the index is quite simple with the @git add@ and @git commit@ commands. Basically, you @add@ files onto the index, and once you're satisfied with the changes @commit@ them:
+ステージングエリアは @git add@ と @git commit@ だけで使える非常に簡単なものだ。つまりファイルをステージングエリアへ @add@ して、変更の状態に満足したならばそれを @commit@ する。
 
 p=. "!http://whygitisbetterthanx.com/images/index1.png!":http://whygitisbetterthanx.com/#the-staging-area
 
-Once they're in the repository you can @push@ them to remote locations, @merge@ them into other branches, and much more. There's also actions that can be performed on the staging area itself, such as "temporarily stashing your changes":http://gitready.com/beginner/2009/01/10/stashing-your-changes.html. 
+ひとたびリポジトリにコミットされたなら、それをリモートリポジトリへ @push@ したり他のブランチへ @merge@ したり、色々できる。ステージングエリア自身へ直接作用するコマンドも存在し、例えば "変更を stash する":http://gitready.com/beginner/2009/01/10/stashing-your-changes.html などだ。
 
-Let's go through just a basic example of using the staging area. I just made some changes:
+ステージングエリアを使った簡単な例を見てみよう。以下は、いくつかファイルを変更したところだとする。
 
 <pre>
 $ git status
@@ -36,7 +37,7 @@ $ git status
   no changes added to commit (use "git add" and/or "git commit -a")
 </pre>
 
-So in this example we have 2 files that Git knows about, and one it does not: help.txt. If we do @git add .@, that will add everything that has been changed or any new files that have not been tracked yet. The add command doesn't store the data yet, it simply places it on the loading dock, ready for the next @git commit@ truck to ship it away. 
+この例では Git が把握しているファイルを2ついじっており、1つのファイルがまだ登録されていない（help.txt）。 @git add .@ を使えば、変更した全てのファイルと、まだ登録されていない全てのファイルをステージングエリアへ追加できる。 @add@ コマンドはデータをまだ保存はしないが、次に @git commit@ する時のための準備として発送センターにデータを置かせてくれる。
 
 <pre>
 $ git add .
@@ -50,7 +51,9 @@ $ git status
       new file:   help.txt
 </pre>
 
-Just like the prompt says, you can use @git reset HEAD <file>@ to restore files back to their modified state. This way, you can commit exactly what you wanted. "You can also commit specific lines of files if you really wanted.":http://gitready.com/advanced/2009/01/15/piecemeal-staging.html If you're wondering about how to revert files, "there's a whole tip dedicated to that as well.":http://gitready.com/beginner/2009/01/11/reverting-files.html From here, doing a @git commit@ will move all of the files into Git's data storage, and you're set!
+プロンプトが言うように @git reset HEAD <file>@ でステージングエリアから変更を戻すことが出来る（なお、ファイル名とブランチ名が被っている場合は @git reset <file>@ のように HEAD を省略してしまうとうまくいかない。HEAD を省略したい場合は @git reset -- <file>@ とする）。このように、自分がしたいようにコミットする事が可能だ。 "ファイル中の指定した行だけをコミットすることすら出来る。":http://gitready.com/advanced/2009/01/15/piecemeal-staging.html ファイルの変更を捨てる方法が知りたいなら "それ専用のまとめ TIPS 記事もある。":http://gitready.com/beginner/2009/01/11/reverting-files.html
+
+さてここまで来たら、 @git commit@ を使うことで指定した全てのファイルを Git のデータ保管場所へ保存できる。以上だ。
 
 <pre>
 $ git commit -m "Adding stuff"
@@ -59,9 +62,9 @@ $ git commit -m "Adding stuff"
    create mode 100644 help.txt
 </pre>
 
-If you're looking for more information on the index, check out these fantastic posts:
+ステージングエリアに関する情報がもっと知りたいなら、以下の素晴らしい記事をチェックしてみよう。
 
 # "The Thing About Git":http://tomayko.com/writings/the-thing-about-git
 # "Git Book - The Git Index":http://book.git-scm.com/1_the_git_index.html
 
-If you know of other resources that explain the index, let us know in the comments!
+ステージングエリアを解説した他の情報源を知っているなら、是非コメントで知らせて欲しい！

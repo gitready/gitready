@@ -1,20 +1,21 @@
 ---
+published: true
 layout: post
-title: pushing and pulling
+title: push と pull
 category: beginner
 ---
 
-Today we're going to review another basic yet powerful concept that Git among other version control systems of its type has: distribution! As you may know, your commits are all local, and repositories are simply clones of each other. That means the real work in distributing your projects is in synchronizing the changes via @git push@ and @git pull@. 
+今回見ていくのは、Git や類似のバージョン管理システムが持つ基本的ではあるがパワフルなコンセプト――分散についてだ。ご存知の通り、Git ではコミットは全てローカルなものであり、そして各リポジトリはお互いの単なる複製にすぎない。それはつまり、分散されたプロジェクトでは、変更を @git push@ と @git pull@ を通して同期する作業が必要だという事を意味する。
 
-If you're new to Git, you may think that this is too much overhead and one that leads to a breakdown of control. Look at it this way: if your central server goes down, you're usually hosed and prevented from working and collaborating with others. Since all of the work involved with actually creating revisions is done on your own machine, you can code whether the network is down without the permission of others or being subject to network issues. Did I mention it's a lot faster too for most routine operations? Check out some more of advantages (and disadvantages) of DVCS at "Wikipedia":http://en.wikipedia.org/wiki/Distributed_revision_control#Vs_Centralised.
+Git を知らない場合、そんな作業はオーバーヘッドが大きすぎるし、コントロール不能に陥るのではないかと考えてしまうかもしれない。こう考えてみよう。もし中央サーバが落ちていたら、普通は自分の作業にも他人との協業にも支障が出る。しかし、これから作成しようとするリビジョンに関連する全ての作業が自分のマシン上に既に施されているなら、不意にネットワークが落ちていたり問題が発生していても、コーディング作業は可能だ。ほとんどの定型作業においても DVCS の方が断然速いという話はしたっけ？　DVCS のその他の利点（と欠点）については "Wikipedia":http://en.wikipedia.org/wiki/Distributed_revision_control#Vs_Centralised を見て欲しい。
 
-"Oliver Steele":http://osteele.com has whipped up a great image of how pushing and pulling works:
+"Oliver Steele":http://osteele.com が、push と pull が使用される様子をナイスな画像としてまとめてくれた。
 
 p=. !http://osteele.com/images/2008/git-transport.png!
 
-The topmost part of the diagram is easy, that's committing your changes to "the staging area":http://gitready.com/beginner/2009/01/18/the-staging-area.html. Once that's done, your version control is essentially in place, but now we want to synchronize it with our remote repository. This could be on a hosting site like "GitHub":http://github.com, your work's main git server, a production machine, or even another coworker's repository. Once the changes have been delivered, others can @pull@ them down and work with them. With most actions in Git there's a few options, but let's stick with @pull@ for today.
+図の一番上の部分は簡単だ。変更が "ステージングエリア":http://gitready.com/beginner/2009/01/18/the-staging-area.html を経てコミットされる。それでひとまずバージョン管理は正しく機能するわけだが、今はそれをリモートリポジトリへ同期したい。同期先は "GitHub":http://github.com のようなホスティングサイトや、オフィスのメイン Git サーバや、本番環境のマシンや、あるいは同僚のリポジトリかもしれない。変更が送り届けられたなら、他の人はそれを @pull@ でひっぱって、自分の作業に使う事ができる。Git でやれる事には大体いつも何個かの選択肢があるが、今日は @push@ と @pull@ にこだわって見ていこう。
 
-Let's go through a real world example. I've just added the "Twitter":http://twitter.com/gitready link at the bottom of this blog. I want to @push@ my changes up to the project's "GitHub repository":http://github.com/qrush/gitready so I can update the server. The syntax of this command is usually @git push <remote> <branch>@. A remote is basically the address of a cloned repository. It's got pretty much all of the same data and history, it's just waiting to get updated. Usually most projects work with an @origin@ remote, and the @master@ branch by default.
+では現実の例について取り上げる。私はこのサイトの一番下に "Twitter":http://twitter.com/gitready のリンクを追加した。そしてこの変更をプロジェクトの "GitHub リポジトリ":http://github.com/qrush/gitready へ @push@ したい。このコマンドの構文は正しくは @git push <remote> <branch>@ だ。remote は通常、クローン元リポジトリのアドレスだ。データと履歴を同じくするリポジトリは、みな変更のアップデートを受け付けていると言えるだろう。ほとんどのプロジェクトでは remote を @origin@ に、branch を @master@ にすればデフォルトで動作する。
 
 <pre>
 $ git commit -am "Adding twitter link"
@@ -30,9 +31,9 @@ $ git push origin master
      361303d..f2cd831  master -> master
 </pre>
 
-Now our remote repository is updated, and if you visit GitHub "you'd be able to see the commits":http://github.com/qrush/gitready/commits/master. The output this command prints out has to deal with how Git transfers over the various blobs of data that have changed, and then lets us know that the repository has been updated by showing the changed SHA1. 
+これでリモートリポジトリがアップデートされたので、GitHub に行けば "そのコミットを見ることができる。":http://github.com/qrush/gitready/commits/master このコマンドの出力は、変更を含んだ blob データがどれだけ転送されたかを表示する。そして SHA1 の変化により、リポジトリがアップデートされていることを教えてくれる。
 
-But what about @pull@? We can use that to update any other repositories with the commits I just synchronized. The project's crappy deploy script does exactly that:
+では @pull@ の方は？ @pull@ を使えば、今さっき私が @push@ により同期したコミットを使って、他のリポジトリが自身をアップデートをすることが出来る。gitready プロジェクトの小さな小さなデプロイスクリプトは、以下だ。
 
 <pre>
 $ git pull origin master
@@ -45,6 +46,6 @@ $ git pull origin master
     1 files changed, 1 insertions(+), 0 deletions(-)
 </pre>
 
-The output shows us that the repository living on the server has some changes to bring in from remote repository, and it proceeds to bring them in. This process would be exactly the same if you wanted to bring in changes that another person committed to your repository. Those who have "forked the gitready repository":http://github.com/qrush/gitready/network/members on GitHub can also now get the changes I've made. Future tutorials will go over that process more in depth.
+この出力はサーバのリモートリポジトリから持ってこれる変更があることと、その取得の進行過程を表示している。このプロセスは、他の誰かがしたコミットを持ってきたい時も全く同じだ。GitHubで "gitready リポジトリをフォークした":http://github.com/qrush/gitready/network/members 誰かも、私が今やった変更を受け取ることができる。このプロセスについては後のチュートリアルでもっと深く扱うつもりだ。
 
-If you can think of any other ideas or concepts that were missed (we'll save refspecs for later tutorials), let us know.
+何か見落としているポイントや意見があれば、知らせて欲しい(ただし refspec については、後のチュートリアルで取り上げる)。

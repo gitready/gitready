@@ -1,37 +1,38 @@
 ---
+published: true
 layout: post
-title: stashing your changes
+title: 変更を stash しよう
 category: beginner
 ---
 
-Stashing is a great way to pause what you're currently working on and come back to it later. For example, if you working on that awesome, brand new feature but someone just found a bug that you need to fix. Add your changes to the index using
+stash を使えば現在の作業を安全に保存して、後でまた簡単に復元できる。例えば画期的な機能を開発中に、同一リポジトリ中のソースコードのバグを直す緊急の仕事が舞い込んだとしよう。まず作業中の変更をステージングする。
 
 @git add .@
 
-Or add individual files to the index, your pick. Stash your changes away with:
+あるいは、必要なファイルを個別に add する。次に、以下のコマンドで変更を stash する。
 
 @git stash@
 
-And boom! You're back to your original working state. Got that bug fixed? Bring your work back with:
+ドーン！　ここでワーキングディレクトリは、作業を始める前の状態に戻る。さて、ちゃちゃっとバグは直した？　ならば以下を使って先ほどの作業を復元する。
 
 @git stash apply@
 
-You can also do multiple layers of stashes, so make sure to use 
+stash は上に幾つも重ねることができる。よって適用する stash を選ぶならば、
 
 @git stash list@ 
 
-To check out all of your current ones. If you need to apply a stash from deeper in the stack, that's easy too. Here's how to apply the second stash you've got:
+上記コマンドで現在の stash を確認する。重なった stash の下の方を選択するのは、難しいことじゃない。上から数えて2番目の stash を適用するには、こうだ。
 
 <code>git stash apply stash@{1}</code>
 
-You can also easily apply the top stash on the stack by using ("Thanks jamesgolick!":http://jamesgolick.com/):
+次のようにして、一番上の stash をさくっと適用する事も出来る("ありがとう、jamesgolick！":http://jamesgolick.com/ )。
 
 @git stash pop@
 
-A note with this command, it deletes that stash for good, while apply does not. You can manually delete stashes with:
+このコマンドには注意点がある。git stash apply と違い、適用した stash を list から永久に削除してしまうことだ。手動で stash を削除するには、以下を使う。
 
 @git stash drop <id>@
 
-Or delete all of the stored stashes with:
+あるいは全ての stash を削除するには、以下を実行する。
 
 @git stash clear@

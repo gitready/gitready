@@ -1,30 +1,31 @@
 ---
+published: true
 layout: post
-title: cleaning up untracked files
+title: 未追跡のファイルを綺麗にする
 category: beginner
 ---
 
-Our first reader submitted tip comes from "Dav Glass":http://blog.davglass.com/, and it elaborates on a command used to keep your repository nice and tidy. Have a tip you'd like to share? "Submit it!":http://gitready.com/submit.html
+当サイト初の読者投稿となる "Dav Glass":http://blog.davglass.com/ からの TIPS は、リポジトリを清潔に保つためのコマンドを詳しく説明してくれる。皆と共有したい TIPS があるって？ "是非投稿しよう！":http://gitready.com/submit.html
 
-Files and directories may pile up in your working directory that are left over from merges, generated, or perhaps got mistakenly put there. Whatever the case, you don't need to ignore them in your @.gitignore@, you just need to remove them. Running
+ワーキングディレクトリには、よそから持ってきたが使わなかったり、無駄に生成されたり、間違って置かれたりしたファイルやディレクトリがたまってしまう事がある。いずれにせよ、それらを @.gitignore@ を使って無視するよりも、削除してしまえばいいだろう。
 
 @git clean -n -d <path>@
 
-will do a 'dry run' of the command and show you just what files and folders are going to be removed. Running it on the "gitready":http://github.com/qrush/gitready gives this output:
+上記コマンドは 'dry run' なので、どのファイルやディレクトリが削除されるかが表示されるだけだ。今作業中の "gitready":http://github.com/qrush/gitready のリポジトリでは以下のように出力される。
 
 <pre>
 Would remove _posts/2009-01-16-cleaning-up-untracked-files.textile
 </pre>
 
-Which definitely would be bad if it was removed. I haven't added the post to the staging area yet, so the file appears as untracked. If you only want files to be cleaned up and not empty directories, take out the @-d@ option. Once you're sure that you do want to blow away all of those files, doing
+どれが削除されるとまずいだろうか。まだこの記事の原稿をステージングエリアに追加していないので、ファイルが未追跡として表示されている。もしファイルだけを綺麗にして、ディレクトリは残すなら @-d@ オプションをはずせばいい。消されるファイルを確認後、それらを一掃したいのならば、
 
 @git clean -d <path>@ 
 
-actually performs the deletion. If you omit the @<path>@ git will perform it on your current directory. Also, you may need to throw in the @-f@ option depending on permissions and other situations that may crop up. 
+上記コマンドで削除が本当に実行される。 @<path>@ をつけなければ、現在いるディレクトリが対象となる。また、不意な git clean から身を守るために Git の config に clean.requireForce が設定されていたなら、実行には @-f@ オプションをつける必要がある。
 
-Cleaning also has a few other helpful options: if you want to perform a normal clean and clear out all the files that git usually ignores, the @-x@ flag will help immensely. If you just want to trash the ignored files and nothing else, use the @-X@ option. 
+git clean には他にも便利なオプションがある。上で説明したワーキングディレクトリの掃除と共に、普段は Git が無視しているファイルも全て片付けたいならば @-x@ オプションが非常に役立つはずだ。逆に無視されているファイルだけを捨てたいのなら @-X@ オプションを使おう。
 
-So if we wanted to do a major cleanup:
+よって大掃除をするならば以下のようになる。
 
 <pre>
 $ git clean -n -d -x
@@ -36,7 +37,7 @@ Would remove images/.DS_Store
 Would remove images/_site/
 </pre>
 
-That command would clean up files listed under the project's ".gitignore":http://github.com/qrush/gitready/blob/7f51407b796c10beb11fe9e67c0f563d41a92fd8/.gitignore file as well as removing other files and directories that aren't necessary. As always use precaution when running @git clean@, and make sure to double check what you're really deleting.
+このコマンドは gitready プロジェクトの ".gitignore":http://github.com/qrush/gitready/blob/7f51407b796c10beb11fe9e67c0f563d41a92fd8/.gitignore にリストアップされているファイルやディレクトリも、不必要なものとして削除する。 @git clean@ を実行する時は dry run による予防措置をとり、実際に何が削除されるのかダブルチェックするのを常としよう。
 
-As always, if you know of other related tricks with @git clean@ let us know in the comments!
+もし @git clean@ に関する他の技をしっているなら、ぜひコメントで知らせて欲しい！
 

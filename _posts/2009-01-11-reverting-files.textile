@@ -1,23 +1,24 @@
 ---
+published: true
 layout: post
-title: reverting files
+title: ファイルの変更を取り消す
 category: beginner
 ---
 
-This is a topic that is a constant source of confusion for many git users, basically because there's more than one way to skin the proverbial cat. Let's go over some of the basic commands that you'll need to undo your work. 
+このトピックでは常々多くの Git ユーザを惑わせている源について触れる。そもそもこの混乱は「何かを達成する方法は一つではない」という所から来ている。では、作業をやり直しする時に必要になる基本的なコマンドを見なおしてみよう。
 
-So, you just want to revert one file back to its original state:
+一つのファイルを元の状態に戻したいとする。次のコマンドだ。
 
 @git checkout <file>@
 
-One problem with this is that you may have is that a file and branch named the same. Since the checkout command is used for both reverting files and swapping out to a different branch, you'll need to use this syntax (thanks, "Norbauer":http://norbauer.com/notebooks/code/notes/git-revert-reset-a-single-file)
+これの問題点は、ファイル名と同じブランチ名が存在するかもしれないことだ。checkout コマンドは変更の取り消しとブランチの切り替えの両方に使われるため、以下の構文を知っておく必要がある。こうすれば、ブランチ名ではなくファイル名を指定しているのだと Git に伝えることができる(ありがとう、"Norbauer":http://norbauer.com/notebooks/code/notes/git-revert-reset-a-single-file )。
 
 @git checkout -- <file>@
 
-If you want to throw out all of the changes you've been working on, there's two ways to do that.
+もし作業していた変更を全て捨ててしまいたいなら、2つの方法がある。
 
 @git checkout -f@ or @git reset --HARD@
 
-Once these commands are run you'll lose all of the work that isn't committed in your directory, so make sure to take caution when using them.
+上記コマンドを実行すると、ワーキングディレクトリ中の未コミットな変更は全て失われる。使う時は十分注意をしよう。
 
-Also, be aware that "'git revert' is not equivalent to 'svn revert'!":http://bryan-murdock.blogspot.com/2007/07/git-revert-is-not-equivalent-to-svn.html @git-revert@ is used to reverse commits, something another tip will cover in the future.
+また "'git revert' は 'svn revert' とは全然関係がない":http://bryan-murdock.blogspot.com/2007/07/git-revert-is-not-equivalent-to-svn.html 事に気を付けよう！ @git-revert@ は過去のコミットを取り消すための逆コミットをするのに使われる。これについては今後のトピックで扱いたいと思う。
